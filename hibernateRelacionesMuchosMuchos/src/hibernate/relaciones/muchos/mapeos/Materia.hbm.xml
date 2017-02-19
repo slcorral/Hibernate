@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="hibernate.relaciones.muchos.muchos.modelo.Materia" table="MATERIAS">
+        <id name="id" column="ID_MATERIA">
+            <generator class="identity" />
+        </id>
+
+        <property name="nombre" />
+
+        <list name="estudiantes" table="ESTUDIANTES_MATERIAS" inverse="true" >
+            <key column="ID_MATERIA" />
+            <list-index column="ORDEN" />
+            <many-to-many class="hibernate.relaciones.muchos.muchos.modelo.Estudiante" column="ID_ESTUDIANTE" />
+        </list>
+
+    </class>
+</hibernate-mapping>
+
