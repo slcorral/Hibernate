@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+  
+    <class name="modelos.Estudiante" table="ESTUDIANTES">
+        
+        <id name="id" column="ID_ESTUDIANTE">
+            <generator class="identity" />
+        </id>
+        
+        <property name="nombre" />
+        
+        <list name="materias" table="ESTUDIANTES_MATERIAS" cascade="all" >
+            
+            <key column="ID_ESTUDIANTE" />
+            <list-index column="ORDEN" />
+            <many-to-many class="modelos.Materia" column="ID_MATERIA" />
+            
+        </list>
+
+    </class>
+    
+</hibernate-mapping>
