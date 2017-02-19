@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="hibernate.parametros.modelo.Compra" table="compras">
+        
+        <id name="id" column="ID_COMPRA">
+            <generator class="identity" />
+        </id>
+
+        <property name="importeTotal" />
+
+        <many-to-one name="usuario" column="ID_USUARIO" />
+
+        <list name="productos" table="COMPRAS_PRODUCTOS" cascade="none" lazy="false" >
+            
+            <key column="ID_COMPRA" />
+            <list-index column="ORDEN" />
+            <many-to-many class="hibernate.parametros.modelo.Producto" column="ID_PRODUCTO" />
+            
+        </list>
+        
+    </class>
+</hibernate-mapping>
