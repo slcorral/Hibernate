@@ -19,21 +19,21 @@ public class HibernateUtil {
     static
     {
         
-        try
+        try //inicializamos la variable sesion factory
         {
             sessionFactory=new Configuration().configure().buildSessionFactory();
            
         }catch(HibernateException he)
         {
-            System.err.println("Ocurrio un error en la inicializacion del sessionFactory "+he);
-            throw he;          
+            System.err.append("Ocurrio un error en la inicializacion del sessionFactory");
+            throw new ExceptionInInitializerError(he);
         }
-       
+        
     }
     
     public static SessionFactory getSessionFactory()
     {
-          return sessionFactory; 
+        return sessionFactory;
     }
     
 }

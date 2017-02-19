@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class name="modelos.Persona" table="PERSONAS">
+        
+        <id name="id" column="ID_PERSONA">
+            <generator class="identity" />
+        </id>
+        
+        <property name="nombre" />
+        
+        <list name="libros" cascade="all-delete-orphan">
+            
+            <key column="ID_PERSONA" />
+            <index column="ORDEN" />
+            <one-to-many class="modelos.Libro" />
+        </list>
+        
+    </class>
+    
+</hibernate-mapping>
