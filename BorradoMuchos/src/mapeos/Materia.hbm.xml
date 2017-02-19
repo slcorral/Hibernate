@@ -4,13 +4,15 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="modelos.Libro" table="LIBROS">
+    
+    <class name="modelos.Materia" table="MATERIAS">
         
-        <id name="id">
+        <id name="id" column="ID_MATERIA">
             <generator class="identity" />
         </id>
         
-        <property name="titulo" />
+        <property name="nombre" />
+        
     </class>
     
 </hibernate-mapping>
