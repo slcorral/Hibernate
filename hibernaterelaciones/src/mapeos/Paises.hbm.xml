@@ -1,0 +1,17 @@
+<?xml version="1.0"?> <!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+  
+<hibernate-mapping>
+    <class name="modelo.Pais" table="Paises">
+        
+        <id name="id" column="ID">
+            <generator class="identity" />
+        </id>
+        
+        <property name="nombre" />
+        
+        <one-to-one name="presidente" cascade="persist,delete" />
+    </class>
+</hibernate-mapping>

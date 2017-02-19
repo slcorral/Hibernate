@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <!-- parametros para la conexion a la base de datos -->
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="connection.url">jdbc:mysql://localhost/hibernaterelaciones</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">toor</property>
+    <!-- Configuracion del pool interno -->
+    <property name="connection.pool_size">1</property>
+    <!-- Dialecto de la base de datos -->
+    <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+    <!-- Otras propiedades importantes -->
+    <property name="show_sql">true</property>
+    <property name="hbm2ddl.auto">create-drop</property>
+    <!-- Aqui iran los archivos de mapeo -->
+    <mapping resource="mapeos/Direccion.hbm.xml"/>
+    <mapping resource="mapeos/Persona.hbm.xml"/>
+    
+    <mapping resource="mapeos/Paises.hbm.xml" />
+    <mapping resource="mapeos/Presidente.hbm.xml" />
+    
+  </session-factory>
+</hibernate-configuration>
