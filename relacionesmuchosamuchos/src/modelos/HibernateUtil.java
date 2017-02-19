@@ -18,17 +18,14 @@ public class HibernateUtil {
     
     static
     {
-        
         try
         {
             sessionFactory=new Configuration().configure().buildSessionFactory();
-           
         }catch(HibernateException he)
         {
             System.err.println("Ocurrio un error en la inicializacion del sessionFactory "+he);
             throw he;          
         }
-       
     }
     
     public static SessionFactory getSessionFactory()
